@@ -1,21 +1,38 @@
-from fastapi import APIRouter, UploadFile, File
+from fastapi import APIRouter, UploadFile, File, HTTPException
+from fastapi.responses import FileResponse
+
 from app.services.stt import speech_to_text
 from app.services.tts import text_to_speech
-from fastapi.responses import FileResponse
+
 router = APIRouter()
 
-
-# Speech to Text
+# speech-to-text (STT) endpoint
 @router.post("/stt")
 async def stt(file: UploadFile = File(...)):
-    audio_bytes = await file.read()
-    text = speech_to_text(audio_bytes)
-    return {"text": text}
+    try:
+        audio_bytes = await file.read()
+        text = speech_to_text(audio_bytes)
 
+        return {
+            "text": text
+        }
 
-# Text to Speech
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=str(e)
+        )
+    
+# text-to-speech (TTS) endpoint
 @router.post("/tts")
 async def tts(text: str):
+
+    if not text.strip():
+        raise HTTPException(
+            status_code=400,
+            detail="Text is empty."
+        )
+
     file_path = text_to_speech(text)
 
     return FileResponse(

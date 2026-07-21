@@ -1,13 +1,35 @@
-import whisper
+import os
 import tempfile
 
-model = whisper.load_model("base") 
+import whisper
 
-# Speech to text function
-def speech_to_text(file_bytes: bytes) -> str:
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp:
+# Download the model if it doesn't exist
+model = whisper.load_model("base")
+
+
+def speech_to_text(file_bytes: bytes, language: str = "uk") -> str:
+    """
+    Converts speech to text using the Whisper model.
+
+    Args:
+        file_bytes: Audio file in bytes.
+        language: Speech language (default: Ukrainian).
+
+    Returns:
+        Recognized text.
+    """
+
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".webm") as tmp:
         tmp.write(file_bytes)
         tmp_path = tmp.name
 
-    result = model.transcribe(tmp_path)
-    return result["text"]
+    try:
+        result = model.transcribe(
+            tmp_path,
+            language=language
+        )
+        return result["text"].strip()
+
+    finally:
+        if os.path.exists(tmp_path):
+            os.remove(tmp_path)
