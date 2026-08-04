@@ -1,0 +1,23 @@
+:root {
+
+    --background: #FFEFDF;
+
+    --sidebar: #014D69;
+
+    --header: #D38F5E;
+
+    --card: #FFFFFF;
+
+    --icon-background: #FFF1E2;
+
+    --button: #F4A74E;
+
+    --button-hover: #E99434;
+
+    --text-light: #FFFFFF;
+
+    --text-dark: #000000;
+
+    --border: rgba(255,255,255,.12);
+
+}

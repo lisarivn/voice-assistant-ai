@@ -7,29 +7,46 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/variables.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
 
-    <h1>🎙 Voice Assistant</h1>
+    <div class="container">
 
-    <textarea id="text" rows="5" cols="40"></textarea>
-    <br><br>
+        <aside class="sidebar">
+            Sidebar
+        </aside>
 
-    <button onclick="sendTTS()">📢 Speak</button>
+        <main class="main-content">
 
-    <br><br>
+            <header>
+                <h1>Твій голосовий помічник</h1>
+            </header>
 
-    <button onclick="startRecording()">🎤 Start Recording</button>
-    <button onclick="stopRecording()">⏹ Stop Recording</button>
+            <section class="cards">
 
-    <p id="status"></p>
+                <div class="features-card">
+                    Features
+                </div>
 
-    <br><br>
+                <div class="assistant-card">
+                    Assistant
+                </div>
 
-    <audio id="audio" controls></audio>
+            </section>
 
-    <script src="script.js"></script>
+        </main>
+
+    </div>
+
+    <script src="js/script.js"></script>
 
 </body>
 
