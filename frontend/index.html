@@ -14,6 +14,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
@@ -21,7 +25,100 @@
     <div class="container">
 
         <aside class="sidebar">
-            Sidebar
+
+            <div class="sidebar-content">
+                <h2 class="logo">Voice Assistant</h2>
+
+                <div class="search-box">
+
+                    <i data-lucide="search"></i>
+
+                    <input type="text" placeholder="Пошук...">
+
+                </div>
+
+                <div class="nav-divider"></div>
+
+                <aside class="menu">
+
+                    <a href="/" class="menu-item">
+                        <i data-lucide="house"></i>
+                        <span>Головна</span>
+                    </a>
+
+                    <a href="#" class="menu-item">
+                        <i data-lucide="bell"></i>
+                        <span>Сповіщення</span>
+                    </a>
+
+                    <a href="#" class="menu-item">
+                        <i data-lucide="user-round"></i>
+                        <span>Особистий кабінет</span>
+                    </a>
+
+                    <a href="#" class="menu-item">
+                        <i data-lucide="settings"></i>
+                        <span>Налаштування</span>
+                    </a>
+
+                </aside>
+
+                <div class="nav-divider"></div>
+                <div class="contacts">
+
+                    <h3 class="contacts-title">Зворотний зв'язок</h3>
+
+                    <a href="mailto:mahovikliza@gmail.com" class="contact-item">
+
+                        <i class="fa-regular fa-envelope"></i>
+
+                        <div class="contact-mask">
+
+                            <span class="contact-text">
+                                mahovikliza@gmail.com
+                            </span>
+
+                        </div>
+
+                    </a>
+
+                    <a href="https://github.com/lisarivn" class="contact-item" target="_blank">
+
+                        <i class="fa-brands fa-github"></i>
+
+                        <span>GitHub</span>
+
+                    </a>
+
+                    <a href="https://linkedin.com/in/yelyzaveta-makhovyk" class="contact-item" target="_blank">
+
+                        <i class="fa-brands fa-linkedin"></i>
+
+                        <span>LinkedIn</span>
+
+                    </a>
+
+                </div>
+
+                <div class="nav-divider"></div>
+
+                <div class="language">
+
+                    <button class="language-switch">
+
+                        <span class="active">UA</span>
+
+                        <div class="divider"></div>
+
+                        <span>EN</span>
+
+                    </button>
+
+                </div>
+            </div>
+
+
+
         </aside>
 
         <main class="main-content">
@@ -47,6 +144,10 @@
     </div>
 
     <script src="js/script.js"></script>
+
+    <script>
+        lucide.createIcons();
+    </script>
 
 </body>
 
