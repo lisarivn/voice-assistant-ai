@@ -1,5 +1,3 @@
-console.log("SCRIPT START");
-
 let mediaRecorder = null;
 let audioChunks = [];
 
@@ -144,4 +142,12 @@ async function stopRecording() {
 
 }
 
-console.log("SCRIPT END");
+// SIDEBAR
+const menuButton = document.querySelector(".menu-toggle");
+const sidebar = document.querySelector(".sidebar");
+
+menuButton.addEventListener("click", () => {
+
+    sidebar.classList.toggle("open");
+
+});
