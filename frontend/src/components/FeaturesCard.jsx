@@ -3,7 +3,7 @@ import {
     Mic,
     FileText,
     Image,
-    Navigation
+    MapPin
 } from "lucide-react";
 
 function FeaturesCard() {
@@ -47,7 +47,7 @@ function FeaturesCard() {
                 </div>
 
                 <div className="feature-item">
-                    <Navigation />
+                    <MapPin />
 
                     <div>
                         <h3>Допомагати орієнтуватися</h3>

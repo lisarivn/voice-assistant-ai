@@ -7,6 +7,7 @@ import {
     Mail
 } from "lucide-react";
 
+import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import LanguageSwitch from "./LanguageSwitch";
 import { useState } from "react";
 
@@ -90,7 +91,7 @@ function Sidebar() {
                         target="_blank"
                         rel="noreferrer"
                     >
-                        <span>◉</span>
+                        <FaGithub />
                         <span>GitHub</span>
                     </a>
 
@@ -100,7 +101,7 @@ function Sidebar() {
                         target="_blank"
                         rel="noreferrer"
                     >
-                        <span>in</span>
+                        <FaLinkedinIn />
                         <span>LinkedIn</span>
                     </a>
 

@@ -6,17 +6,13 @@ function AssistantCard() {
 
             <h2>Як я можу вам допомогти?</h2>
 
-            <div className="assistant-content">
+            <button className="mic-btn">
+                <Mic />
+            </button>
 
-                <p className="assistant-status">
-                    Натисніть кнопку мікрофона, щоб щось запитати.
-                </p>
-
-                <button className="mic-btn">
-                    <Mic />
-                </button>
-
-            </div>
+            <p className="assistant-status">
+                Натисніть кнопку мікрофона, щоб щось запитати.
+            </p>
 
         </section>
     );

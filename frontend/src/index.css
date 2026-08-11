@@ -15,7 +15,7 @@ body {
 
 .main-content {
     flex: 1;
-    padding: 20px;
+    padding: 40px;
     transition: .45s;
 }
 
@@ -270,6 +270,8 @@ body {
 
     font-weight: 700;
 
+    color: var(--text-light);
+
 }
 
 .contact-item {
@@ -425,6 +427,7 @@ h1 {
 
     gap: 10px;
 
+    margin-top: 25px;
 
 }
 
@@ -470,17 +473,22 @@ h1 {
     color: var(--text-dark);
 }
 
+.features-card h2 {
+    text-align: center;
+}
 
 /* Assistant card styles */
 .assistant-card {
     background: var(--card);
     border-radius: 35px;
-    padding: 35px;
+    padding: 70px;
 
     display: flex;
     flex-direction: column;
+
     align-items: center;
     justify-content: center;
+
     text-align: center;
 }
 
@@ -490,20 +498,15 @@ h1 {
     font-size: 32px;
 }
 
-.assistant-card p {
-    color: var(--text-dark);
-    margin: 0;
-}
-
 .mic-btn {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    margin-bottom: 25px;
-
     width: 80px;
     height: 80px;
+
+    margin-bottom: 20px;
 
     border: none;
     border-radius: 50%;
@@ -516,6 +519,54 @@ h1 {
 .mic-btn svg {
     width: 40px;
     height: 40px;
-
     stroke: #000;
+}
+
+.assistant-status {
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.language {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.language-switch {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 8px 18px;
+
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, .08);
+
+    color: var(--text-light);
+
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.language-switch:hover {
+    background: rgba(255, 255, 255, .15);
+}
+
+.language-switch .active {
+    color: var(--text-light);
+}
+
+.language-switch .divider {
+    width: 1px;
+    height: 16px;
+
+    background: rgba(255, 255, 255, .35);
 }
