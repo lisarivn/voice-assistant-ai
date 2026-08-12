@@ -534,8 +534,13 @@ h1 {
 }
 
 .assistant-status {
-    color: var(--text-dark);
-    margin: 0;
+    max-width: 520px;
+
+    text-align: center;
+
+    line-height: 1.5;
+
+    overflow-wrap: anywhere;
 }
 
 .tts-box {
@@ -613,6 +618,59 @@ h1 {
 .tts-btn:disabled {
     opacity: .45;
     cursor: default;
+}
+
+.recognized-result {
+    position: relative;
+
+    width: 100%;
+    max-width: 520px;
+    min-height: 140px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 35px 55px 35px 35px;
+
+    text-align: center;
+}
+
+.recognized-result p {
+    margin: 0;
+
+    font-size: 20px;
+    line-height: 1.5;
+
+    overflow-wrap: anywhere;
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+
+    width: 36px;
+    height: 36px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 32px;
+    line-height: 1;
+
+    color: #000;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: .2s;
+}
+
+.close-btn:hover {
+    transform: scale(1.1);
 }
 
 .language {

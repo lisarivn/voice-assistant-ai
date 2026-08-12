@@ -5,6 +5,8 @@ function AssistantCard() {
     const [isRecording, setIsRecording] = useState(false);
     const [text, setText] = useState("");
     const [isSpeaking, setIsSpeaking] = useState(false);
+    const [recognizedText, setRecognizedText] = useState("");
+    const [isProcessing, setIsProcessing] = useState(false);
 
     const mediaRecorderRef = useRef(null);
     const audioChunksRef = useRef([]);
@@ -24,7 +26,7 @@ function AssistantCard() {
             }
         };
 
-        mediaRecorder.onstop = () => {
+        mediaRecorder.onstop = async () => {
             const audioBlob = new Blob(
                 audioChunksRef.current,
                 { type: "audio/webm" }
@@ -33,6 +35,39 @@ function AssistantCard() {
             console.log("Recorded audio:", audioBlob);
 
             stream.getTracks().forEach(track => track.stop());
+
+            try {
+                setIsProcessing(true);
+                setRecognizedText("");
+
+                const formData = new FormData();
+
+                formData.append("file", audioBlob, "recording.webm");
+
+                const response = await fetch(
+                    "http://localhost:8000/stt",
+                    {
+                        method: "POST",
+                        body: formData
+                    }
+                );
+
+                if (!response.ok) {
+                    throw new Error("Не вдалося розпізнати мовлення.");
+                }
+
+                const data = await response.json();
+
+                console.log("STT result:", data);
+
+                setRecognizedText(data.text);
+
+            } catch (error) {
+                console.error("STT error:", error);
+                setRecognizedText("Не вдалося розпізнати мовлення.");
+            } finally {
+                setIsProcessing(false);
+            }
         };
 
         mediaRecorder.start();
@@ -98,21 +133,38 @@ function AssistantCard() {
 
             <h2>Як я можу вам допомогти?</h2>
 
-            <button
-                className="mic-btn"
-                onClick={handleMicrophone}
-            >
-                <Mic />
-            </button>
-
             <div className="assistant-content">
 
-                <p className="assistant-status">
-                    {isRecording
-                        ? "Слухаю..."
-                        : "Натисніть кнопку мікрофона, щоб щось запитати."
-                    }
-                </p>
+                {recognizedText ? (
+                    <div className="recognized-result">
+                        <button
+                            className="close-btn"
+                            onClick={() => setRecognizedText("")}
+                        >
+                            ×
+                        </button>
+
+                        <p>{recognizedText}</p>
+                    </div>
+                ) : (
+                    <>
+                        <button
+                            className="mic-btn"
+                            onClick={handleMicrophone}
+                        >
+                            <Mic />
+                        </button>
+
+                        <p className="assistant-status">
+                            {isRecording
+                                ? "Слухаю..."
+                                : isProcessing
+                                    ? "Розпізнаю мовлення..."
+                                    : "Натисніть кнопку мікрофона, щоб щось запитати."
+                            }
+                        </p>
+                    </>
+                )}
 
                 <div className="tts-box">
 
