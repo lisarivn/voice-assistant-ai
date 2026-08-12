@@ -494,14 +494,12 @@ h1 {
 
 .assistant-content {
     width: 100%;
-
+    
     display: flex;
+    
     flex-direction: column;
-
+    
     align-items: center;
-    justify-content: center;
-
-    text-align: center;
 }
 
 .assistant-card h2 {
@@ -538,6 +536,83 @@ h1 {
 .assistant-status {
     color: var(--text-dark);
     margin: 0;
+}
+
+.tts-box {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    max-width: 520px;
+
+    margin-top: 25px;
+    padding: 14px 18px;
+
+    background: #F7A561;
+    border-radius: 22px;
+
+    transition: .25s;
+}
+
+.tts-box textarea {
+    flex: 1;
+
+    min-height: 32px;
+    max-height: 120px;
+
+    resize: none;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+
+    color: #000000;
+}
+
+.tts-box textarea::placeholder {
+    color: #000000;
+    opacity: 1;
+}
+
+.tts-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.tts-btn svg {
+    width: 25px;
+    height: 25px;
+
+    stroke: #000000;
+    stroke-width: 2.5;
+}
+
+.tts-btn:hover:not(:disabled) {
+    transform: scale(1.1);
+}
+
+.tts-btn:disabled {
+    opacity: .45;
+    cursor: default;
 }
 
 .language {
