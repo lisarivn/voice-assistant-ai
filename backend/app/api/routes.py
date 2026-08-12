@@ -11,11 +11,21 @@ router = APIRouter()
 async def stt(file: UploadFile = File(...)):
     try:
         audio_bytes = await file.read()
+
+        if not audio_bytes:
+            raise HTTPException(
+                status_code=400,
+                detail="Audio file is empty."
+            )
+
         text = speech_to_text(audio_bytes)
 
         return {
             "text": text
         }
+
+    except HTTPException:
+        raise
 
     except Exception as e:
         raise HTTPException(

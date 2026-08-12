@@ -3,8 +3,8 @@ import tempfile
 
 import whisper
 
-# Download the model if it doesn't exist
-model = whisper.load_model("base")
+# Load the Whisper model once at the module level to avoid reloading it for each request
+model = whisper.load_model("small")
 
 
 def speech_to_text(file_bytes: bytes, language: str = "uk") -> str:
@@ -28,6 +28,7 @@ def speech_to_text(file_bytes: bytes, language: str = "uk") -> str:
             tmp_path,
             language=language
         )
+
         return result["text"].strip()
 
     finally:
