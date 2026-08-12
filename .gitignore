@@ -6,3 +6,6 @@ __pycache__/
 *.pyc
 audio/input/
 audio/output/
+
+# Generated audio
+backend/audio/
