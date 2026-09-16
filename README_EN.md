@@ -1,5 +1,7 @@
 # 🎙️ AI Voice Assistant for Visually Impaired People
 
+🇺🇦 [Українська](README.md) | 🇬🇧 **English**
+
 > A voice assistant designed to make interaction with digital technologies more accessible for people with visual impairments.
 
 > 🚧 The project is currently under active development.
